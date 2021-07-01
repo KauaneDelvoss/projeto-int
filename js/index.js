@@ -23,6 +23,7 @@ function getUser() {
         })
     }
   })
+
 }
 
 
@@ -34,22 +35,12 @@ async function saveRegister() {
   const firstName = document.getElementById("inputFirstName").value
   const rg = document.getElementById("inputRG").value
   const cpf = document.getElementById("inputCPF").value
-  if (!profile) {
-    await db.collection("Cadastro").add({
-      uid: currentUser.uid,
-      firstName: firstName,
-      rg: rg,
-      cpf: cpf,
-    })
-    getUserInfo(currentUser.uid)
-  } else {
-    await db.collection("Cadastro").doc(currentUser.id).update({
-      firstName: firstName,
-      rg: rg,
-      cpf: cpf,
-    })
-  }
-  readCadastros()
+  await db.collection("Cadastro").add({
+    firstName: firstName,
+    rg: rg,
+    cpf: cpf,
+  })
+  window.location = '/list.html'
 }
 
 
