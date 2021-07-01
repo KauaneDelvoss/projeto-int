@@ -2,7 +2,7 @@ const db = firebase.firestore();
 let cadastros = [];
 function createDelButton(cadastro) {
   const newButton = document.createElement("button");
-  newButton.setAttribute("class", "btn btn-warning");
+  newButton.setAttribute("class", "btn btn-danger");
   newButton.appendChild(document.createTextNode("Excluir"));
   newButton.setAttribute("onclick", `deleteCadastro("${cadastro.id}")`);
   return newButton;
